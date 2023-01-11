@@ -1,0 +1,10 @@
+This is a Complete One Page responsive website.
+
+> Lnaguages:  HTML, CSS , Bootstrap Template
+
+> Includes working PHP contact form.
+ Note: -Uncomment the PHP script at the top of the index.html page.
+            - change your email addresss.
+
+For Contact and Details Visit: https://www.hmablogs.com/
+YouTube Channel: https://www.youtube.com/channel/UCCj8edobyplMAnhwYvi9n4A?sub_confirmation=1

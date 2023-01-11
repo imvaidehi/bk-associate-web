@@ -1,0 +1,1042 @@
+﻿
+<!-- <?php
+//PHP code to sent contact form to both client and owner
+if (isset($_POST['submit'])) { //Check if user enter data
+    $mailto = "sasconcompany@gmail.com"; //My email address
+    $from = $_POST['email']; //Senders email address
+    $name = $_POST['name']; //User name
+    $subject = $_POST['subject'];
+    $subject2 = "Your Message Submitted Successfully | HMA WebDesign"; //This is for client
+    $message = "Client Name: ". $name. ", Wrote the Following Message". "\n\n". $_POST['message'];
+    $message2 = "Dear ". $name. "\n\n" ."Thank You for contacting us! We'll get back to you shortly"; //This is for sender
+    $headers = "From: ". $from; // User entered email address
+    $headers2 = "From: ". $mailto; //This will receive to client
+    $result = mail($mailto, $subject, $message, $headers); //send email to website owner
+    $result2 = mail($from, $subject2, $message2, $headers2); //send email to User as well
+    if ($result) {
+        echo '<script type="text/javascript">alert("Message Sent Successfully. Thank you! We will contact you shortly.")</script>';
+    }else {
+        echo '<script type="text/javascript">alert("Submission failed! Try again Later") </script>';
+    }
+} 
+
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="eA-bzG__RUmd64Y9csVmeXVMe-tDQBeLc6PX18DAez0" />
+    
+    <title>
+      
+        B.K. Associate &middot; 
+      
+    </title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+      <link href="assets/css/toolkit-startup.css" rel="stylesheet">
+      <link href="assets/css/application-startup.css" rel="stylesheet">
+      <link type="text/css" href="myStyle.css" rel="stylesheet">
+
+
+      <!------Top button cdn link-->
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+      
+      <!----Animate.css cdn link-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+      
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+    <style>
+      /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+      /* this chunk of css is not part of the toolkit :) */
+      /* …curses ios, etc… */
+      body {
+          font-family: 'Segoi UI';
+      }
+      p {
+          font-size: 16px !important;
+      }
+      @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+          width: 1px;
+          min-width: 100%;
+          *width: 100%;
+         
+        }
+
+        #stage {
+          height: 1px;
+          overflow: auto;
+          min-height: 100vh;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+      #contactInfo {
+          float: left;
+          padding: 3px;
+          margin-left: 17px;
+          margin-top:-5px;
+      }
+      .info {
+          margin-left: 15px;
+          font-size: 15px;
+          color:white;
+      }
+      .email:hover {
+          color:#d4d4d4;
+      }
+      .icon {
+          float: right;
+          font-size: 22px;
+          margin-right: 15px;
+          color: white;
+ 
+      }
+      .icon:hover {
+        color:#d4d4d4 !important;
+      }
+      .sideIcone {
+          font-size: 20px;
+          margin: 15px;
+          color: black;
+      }
+      #socialLinks {
+          width: 80%;
+          margin: 10px auto;
+      }
+      #socialIcon {
+          margin-right: 20px;
+      }
+       .main {
+    width: 80%;
+    margin: 10px auto;
+}
+
+ .form-control {
+    padding-left: 10px;
+}   
+ .search {
+     width: 14%;
+     margin-top: -4px!important;
+     margin-right: -4px!important;
+ }
+ 
+  @media (max-width: 600px) {
+      .fontChange {
+          font-size:20px;
+          align-content:center;
+          justify-content:center;
+          text-align:center;
+      }
+      .contact {
+          margin-top: 25px!important;  
+      }
+      .block-titleData {
+        font-size: 29px !important;
+        font-weight: 600 !important;
+        margin-top: -20px !important;
+      }
+  }
+  @media (max-width: 700px) {
+      #ourWork {
+          height: 450px!important;
+      }
+  }
+  .fontChange:hover {
+      color: rgb(37, 73, 141);
+  }
+  .myColor{
+   background-color: rgb(36, 30, 30)!important;
+   opacity: 0.7!important;
+   width: 400px;
+   height: 70px;
+   padding-top:0.3px;
+   margin: 0 auto;
+ }
+    </style>
+  </head>
+
+
+<body>
+  <!-- Side Bar menu items code -->
+
+<div class="stage-shelf stage-shelf-right hidden" id="sidebar">
+  <ul class="nav nav-bordered nav-stacked flex-column">
+    <li class="nav-header">B.K. Associate </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="index.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#aboutUs">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#services">Services</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" href="#pricing">Pricing</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" href="#ourWork">Our Work</a>
+    </li>
+    <li class="nav-item">
+       <a class="nav-link" href="#contact">Contact</a>
+    </li>
+    <li class="nav-item">
+        <div class="main">
+           <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search Here">
+                 <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+</li>
+    <li class="nav-item">
+        
+    </li>
+  </ul>
+</div>
+
+<div class="stage" id="stage">
+<div class="block block-inverse block-fill-height app-header"
+     style="background-image: url(images/image3.png); background-attachment: fixed; height: 700px;">
+ 
+  <div class="py-3 mx-4 fixed-top app-navbar">
+   <div id="topBar">
+       <div class ="topBarItems hidden-sm-down">
+           <div id="contactInfo">
+               <a href="mailto: sasconcompany@gmail.com"  class="email info"><span class="ml-1 mr-2" style="font-size:20px; position:relative; top:1px;">&#9993;</span> sasconcompany@gmail.com</a>
+               <span class="info"><span class="mr-2" style="font-size:20px; position:relative; top:1px;"><i class="fa fa-whatsapp"></i></span> 9824386872</span>
+           </div>
+           
+       </div>
+   </div>
+
+ <!-- top line -->
+  <div id="topLine" class="hidden-sm-down"></div>
+
+  <nav class="navbar container navbar-transparent navbar-padded navbar-toggleable-sm">
+    <button
+      class="navbar-toggler navbar-toggler-right hidden-md-up"
+      type="button"  
+      data-target="#stage"
+      data-toggle="stage"
+      data-distance="-250">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand mr-auto " href="https://hmawebdesign.com">
+          <img src="images/logo.png" style="width:150px; margin-top: -20px;"/>
+    </a>
+
+    <div class="hidden-sm-down">
+      <ul class="navbar-nav mb-3">
+        <li class="nav-item px-2">
+          <a class="nav-link " href="">Home</a>
+        </li>
+        <li class="nav-item px-2 ">
+          <a class="nav-link" href="#aboutUs">About</a>
+        </li>
+        <li class="nav-item px-2 ">
+          <a class="nav-link " href="#services">Services</a>
+        </li>
+        <li class="nav-item px-2 ">
+          <a class="nav-link " href="#Clientele">Clientele</a>
+        </li>
+        <li class="nav-item px-2">
+            <a class="nav-link " href="#ourWork">Work</a>
+        </li>
+        <li class="nav-item px-2">
+            <a class="nav-link " href="#contact">Contact</a>
+         </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+  <div class="block-xs-middle ">
+    <div class="container " >
+      <div class="row justify-content-center mt-4">
+        <div class="col-sm-10 col-lg-7 ">
+          <h1 class="block-titleData frequency mt-5 wow fadeInDown" style="font-size: 48px;">Fire Safety System Provider</h1>
+           <hr class="my-2 float-left wow fadeInLeft" data-wow-delay="0.3s" style= "border: 1px solid rgb(238, 237, 237); width: 100%;" />
+          <p class="lead mb-4 mt-2 text-muted float-left wow fadeInUp" data-wow-delay="0.6s">A one-stop solution for the design, installation, maintenance, and supply of fire protection systems.</p>
+
+             <!-- Action button -->
+            <div class="wow zoomInUp" data-wow-duration="1.5s"  data-wow-delay="1s">
+              
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div id="aboutUs" class="container-fluid" style=" background-image: linear-gradient(to right top,#FFFF, #FFFF, #FFFF, #FFFF, #FFFF);;">
+    <div class="row flex-row-reverse py-5 mr-5">
+      <div class="col-md-5 col-sm-10 col-xs-10 my-auto mr-3 wow zoomIn" data-wow-delay="0.2s" data-wow-duration="1s">
+        <img src="images/image6.png" style="width: 100%;">
+      </div>
+      <div class="col-md-6 col-sm-11 col-xs-12 ml-5">
+            <h2 class="text-uppercase mb-4 mt-4 text-white wow fadeInLeft" data-wow-delay="0.2s" data-wow-duration="1s">
+          ABOUT US
+            </h1>
+            <p class="text-white lead text-muted wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+                B K Associate is a company dealing in fire safety and protection system across the state of Gujarat, India. Projects and developments outside of Gujarat are also undertaken and completed satisfactorily. We deal primarily in design, installation, supply, and commissioning; and then, after sales maintenance of the fire protection system and installations.
+            </p>
+
+            <div class="row">
+                <div class="col-sm-6 col-xs-12 mb-3 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
+                    <h4 class="text-white text-uppercase mb-2">Additional Exprtise</h4>
+                    <p class="text-muted lead ">
+                        How to USE" sessions are carried out for the companies. Safety Audits as per the IS: are conducted by us.
+                    </p>
+                </div>
+                <div class="col-sm-6 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
+                    <h4 class="text-white text-uppercase mb-2"></h4>
+                    <p class="text-muted lead">
+                        
+                    </p>
+                </div>
+            </div>
+    </div>
+   </div>
+ </div>
+
+    <div id="services" class="block"
+         style="background-image: url(images/image5.png); background-attachment: fixed; height:auto; padding: 30px!important; ">
+        <h1 class="text-center text-uppercase mt-3 text-white wow jackInTheBox" data-wow-delay="0.1s"><centre><h1 style="color:white;">Services We can Provide</h1></centre> </h1>
+        <div class="container">
+              <div class="card-deck">
+                  <div class="card my-5 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="1.2s">
+                    <img class="card-img-top img-fluid mx-auto" src="images/responsive.png" style="width:45%;" alt="Card image cap">
+                      <div class="card-body">
+                    
+                        <div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                           <ul>
+                               <li><b>Fire Hydrant System</b></li>
+                               <li>Fire Detection and Alarm System</li>
+                               <li>Passive Fire Protection System </li>
+                               <li>Kitchen Hood Fire Fighting System </li>
+                               
+                           </ul>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        </div>  
+                          
+                  </div>
+                </div>
+                  <div class="w-100 d-none d-sm-block d-md-none"></div>
+                  <div class="card my-5 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1.2s">
+                      <img class="card-img-top img-fluid mx-auto mt-3" src="images/template.png" style="width:35%;">
+                      <div class="card-body">
+                          
+                          <div>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                          <ul>
+                             
+                              <li>Medium velocity Water Spray System</li>
+                              <li>High Velocity Water Spray System</li>
+                              <li>Water Curtain System </li>
+                              <li>Foam Pouring System</li>
+                          </ul>
+                               </br>
+                            </br>
+                        </br>
+                    </br>
+                </br>
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                  <div class="card my-5 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s">
+                      <img class="card-img-top img-fluid mx-auto mt-4" src="images/wordpress.png" style="width:32%;" alt="Card image cap">
+                      <div class="card-body">
+                         
+
+                        <div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            
+                          <ul>
+                              <li>Sprinkler System</li>
+                              <li>Foam Sprinkler System</li>
+                              <li>CO2 and Clean Agent Gas Flooding System</li>
+                              <li>CCTV (BMS) </li>
+                              
+                          </ul>
+                        </br>
+                    </br>
+                </br>
+            </br>
+    
+    </br>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+    </div>
+</div>
+
+<!-- Our Work -->
+<div class="block block-inverse app-high-praise" id="ourWork"
+     style="background-image: url(assets/img/startup-3.png); padding:30px!important; background-attachment: fixed; height:720px;">
+    <h1 class="text-center text-uppercase font-weight-bold mt-4 wow rotateInDownLeft" >Our Work Samples</h1>
+    <div class="container col-md-9 ">
+        <!-- Slide Show -->
+        <div id="carouselExampleIndicators" class="carousel slide mt-5 mb-5 wow zoomIn" data-wow-delay="0.3s" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner" style="max-height: 650px !important;">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="images/theme1.jpg" alt="Web Theme">
+                    <div class="carousel-caption d-none d-md-block">
+                        
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/theme2.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                        
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/theme3.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                  
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/theme4.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                      
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="images/theme5.jpg" alt="Website Theme Design">
+                    <div class="carousel-caption d-none d-md-block">
+                      
+                    </div>
+                </div>
+                
+            
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!--Ende Slide Show-->
+  </div>
+</div>
+
+<!------------------Pricing code--------------------->
+
+<div id="accordion">
+    <div class="card" id="pricing">
+        <div class="card-header" id="headingOne">
+            <h5 class="my-4 text-center wow fadeInLeft" data-wow-duration="1s">
+                <button class="btn btn-link .text-decoration-none" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <span class="h1 mt-3 fontChange"><strong>Industries</strong></span>
+                </button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body" id="webDesignPricing">
+                
+                <div class="block app-price-plans" style="padding:30px !important;">
+                    <div class="container text-center">
+
+                       <div class="row mb-5">
+                            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay="0.6s">
+                                <h3>Our Vision Is To Provide Life Safety and Property Protection.</h3>
+                            </div>
+                       </div>
+
+                        <div class="row">
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                    
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;"></sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;></span>
+                                        </p>
+                                    </div>
+                                  
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"><B> Petrochemical Plants</B></li>
+                                    <li class="py-3"> <B>Oil Refineries</B></li>
+                                    <li class="py-3">Commercial Complexes</li>
+                                    
+                                </ul>
+
+                                
+                            </div>
+
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                    
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;"></sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                
+                                            </span>
+                                        </p>
+                                    </div>
+                                   
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"> Educational Institutions </li>
+                                    <li class="py-3"> Medical Infrastructure</li>
+                                    <li class="py-3"> Residential Buildings</li>
+                                </ul>
+                            
+
+                                
+                            </div>
+
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                   
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;"></sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                
+                                            </span>
+                                        </p>
+                                    </div>
+                                   
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"> Telecommunication Centers</li>
+                                    <li class="py-3"> Power Station</li>
+                                    <li class="py-3"> Airport Installations</li>
+                                </ul>
+
+                              
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+
+   <!-- <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="my-4 text-center wow fadeInLeft" data-wow-duration="1s">
+                <button class="btn btn-link collapsed .text-decoration-none" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <div class="h1 mt-3 fontChange"><strong>Email Template Pricing</strong></div>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body" id="emailTemplatePricing">
+               
+
+                <div class="block app-price-plans" style="padding:30px !important;">
+                    <div class="container text-center">
+
+                        <div class="row mb-5">
+                            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay="0.6s">
+                                <h3>Prices are Negotiable According to Your Project Requirements.</h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                    <h4 class="text-uppercase font-weight-bold">Basic</h4>
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;">$</sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                10
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <p class="pb-1">
+                                        Basic package includes an editable HTML Email Template (Newsletter) or HTML Email Signature.
+                                    </p>
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Delivery in 1 Days</strong></li>
+                                    <li class="py-3"> <strong><span class="mr-2">&#128505;</span>2 Section Email Template</strong></li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Responsive Design</strong></li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span> Unlimited Revisions</strong></li>
+                                </ul>
+
+                                <a href="https://www.fiverr.com/haaddison1/design-a-responsive-html-email-template-or-newsletter" target="_blank" class="btn btn-lg btn-primary btn-block">
+                                    Start Now
+                                </a>
+                            </div>
+
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                    <h4 class="text-uppercase font-weight-bold">Standard</h4>
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;">$</sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                25
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <p class="pb-1">
+                                        Standard Package includes 3 section HTML Email Template,
+                                        responsive design, PSD to HTML.
+                                    </p>
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Delivery in 2 Days</strong></li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Editable Template</strong></li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span> Email Testing</strong> </li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span> Unlimited Revisions</strong></li>
+                                </ul>
+
+                                <a href="https://www.fiverr.com/haaddison1/design-a-responsive-html-email-template-or-newsletter" target="_blank" class="btn btn-lg btn-primary btn-block">
+                                    Start Now
+                                </a>
+                            </div>
+
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                    <h4 class="text-uppercase font-weight-bold">Premium</h4>
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;">$</sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                40
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <p class="pb-1">
+                                        This package includes more than 3 sections advance Email Template with custom design.
+                                    </p>
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Clickable Social Icones</strong></li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Delivery in 3 Days</strong></li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Lifetime Technical Support</strong></li>
+                                    <li class="py-3"><strong><span class="mr-2">&#128505;</span>Unlimited Revisions</strong></li>
+                                </ul>
+
+                                <a href="https://www.fiverr.com/haaddison1/design-a-responsive-html-email-template-or-newsletter" target="_blank" class="btn btn-lg btn-primary btn-block">
+                                    Start Now
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+-->
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="my-4 text-center wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.6s" >
+                <button class="btn btn-link collapsed .text-decoration-none" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <div class="h1 mt-3 fontChange"><strong>Clientele</strong> </div>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body" id="wpPricing">
+                
+
+                <div class="block app-price-plans" style="padding:30px !important;">
+                    <div class="container text-center">
+
+                        <div class="row mb-5">
+                            <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 wow fadeInUp" data-wow-delay="0.6s">
+                                <h3>Best Quality Is Icon Of An Excellent Work.</h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                    
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;"></sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                
+                                            </span>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"> M/S. NITREX CHEMICALS - JAGHADIA [ HYDRANT AND SPRINKLER SYSTEM]</li>
+                                    <li class="py-3"> M/S. DY-STAR – ANKLESHWAR [ HYDRANT AND SPRINKLER SYSTEM]</li>
+                                    <li class="py-3">M/S. WELSPUN - DAHEJ - CO2 FLOODING SYSTEM - UP-GRADATION</li>
+                                    <li class="py-3">M/S. ASIAN PAINTS - ANKLESHWAR [ MEFG - SYSTEM]</li>
+                                    <li class="py-3">M/S. CADILA PHARMA - ANKLESHWAR [ HYDRANT PUMP HOUSE ]</li>
+                                    <li class="py-3">M/S. S-KUMAR – JAGHADIA [ HYDRANT  SYSTEM]</li>
+                                    <li class="py-3">M/S. LUPIN - ANKLESHWAR [ HYDRANT SYSTEM UP-GRADATION]</li>
+                                    <li class="py-3"> M/S. RALLIS INDIA - ANKLESHWAR [ HYDRANT SYSTEM UP-GRADATION]</li>
+                                    <li class="py-3">M/S. GUJARAT BOROSIL - JAGHADIA [ HYDRANT SYSTEM ] </li>
+                                    <li class="py-3">M/S. PAUSHAK LIMITED [ ALEMBIC GROUP ] PANELAV BASKA HALOL [ HYDRANT SYSTEM] </li>
+                                    <li class="py-3">M/S. ADITYA BIRLA INSULATOR - HALOL [ HYDRANT SYSTEM ] </li>
+                                    <li class="py-3">M/S. AREVA LIMITED - JAROD [ DISIGNING UNDER THE BANNER OF M/S. SHAH & TALATI ] [ HYDRANT SYSTEM ] </li>
+                                    <li class="py-3">M/s. ALSTOM LIMITED - MAKARPURA - VADODARA [ HYDRANT SYSTEM UP-GRADATION] </li>
+                                    <li class="py-3"> M/S. LUBI-GEL LIMITED. - MANJUSAR SAVLI. [ UP-GRADATION HYDRANT AND SPRINKLER AND SPARAY SYSTEM.</li>
+                                    <li class="py-3"> M/S. SETCO AUTO SYSEMS PVT. LTD. KATOL. [ HYDRANT / SPRINKLER SYSTEM/DELUGE VALVE - AUTO SPRAY SYSTEM/HIGH EXPANSION FOAM GENERATION /FIRE ALARM/SMOKE DETECTION SYSTEM] </li>
+                                    <li class="py-3"> M/S. HARI ORGOCHEM PVT LTD. - NANDESARI  [ HYDRANT SYSTEM]   </li>
+
+                                </ul>
+
+                                
+                            </div>
+
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                   
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;"></sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                
+                                            </span>
+                                        </p>
+                                    </div>
+                                  
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"> M/S. JACOBS ENGINNERING LTD. - VADODARA [ FIRE ALARM AND PORTABLE FIRE EXTINGUISHER]</li>
+                                    <li class="py-3"> M/S. GAMESHA INTERNATIONAL LTD. - HALOL [[ HYDRANT SYSTEM PUMP ROOM UP-GRADATION]</li>
+                                    <li class="py-3">M/S. STYROLUTION ABS LTD. - NANDESARI [ SPRINKLER SYSTEM ]</li>
+                                    <li class="py-3">M/S. STYROLUTION ABS LTD. - MOXI SAVLI [ SPRINKLER SYSTEM ]</li>
+                                    <li class="py-3">M/S. STYROLUTION ABS LTD. - KATOL HALOL [ SPRINKLER SYSTEM ]</li>
+                                    <li class="py-3">M/S. STYROLUTION ABS LTD. - KANDLA [ SPRINKLER SYSTEM ]</li>
+                                    <li class="py-3">M/S. XYLEM LIMITED - MANJUSAR SAVLI [ HYDRANT SYSTEM UP-GRADATION]</li>
+                                    <li class="py-3">M/S. HOENYWELL LTD. - MANJUSAR SAVLI [ HYDRANT SYSTEM ]</li>
+                                    <li class="py-3"> M/S. TDW INDIA LIMITED - MANJUSAR SAVLI - [ HYDRANT & SPRINKLER SYSTEM UP-GRADATION]</li>
+                                    <li class="py-3"> M/S. ATLAS COPPCO - NASHIK [ MEFG - FOR PAINT STORAGE]    </li>
+                                    <li class="py-3">M/S. DRESSAR RAND - AHEMDABAD [ FIRE ALARM SYSTEM ]  </li>
+                                    <li class="py-3">M/S. ONGC – GANDHINAGAR - FIRE ALARM / SMOKE DETECTION SYSTEM</li>
+                                    <li class="py-3">M/S. ONGC – CHANDKHEDA - CO2 FLOODING SYSTEM  </li>
+                                    <li class="py-3"> M/S. ONGC – VADODARA - FIRE ALARM / SMOKE DETECTION SYSTEM </li>
+                                    <li class="py-3">M/S. AMARFOOD AND BEVERAGES - KARJAN [ HYDRANT SYSTEM] </li>
+                                    <li class="py-3"> M/S. SETCO AUTO SYSEMS PVT. LTD. KATOL. [ HYDRANT / SPRINKLER SYSTEM/DELUGE VALVE - AUTO SPRAY SYSTEM/HIGH EXPANSION FOAM GENERATION /FIRE ALARM/SMOKE DETECTION SYSTEM]                                    </li>
+                                    
+                                    
+
+                                </ul>
+
+                                
+                            </div>
+
+                            <div class="col-md-4 px-4 pb-2 mb-5">
+                                <div class="px-2">
+                                   
+                                    <div class="mr-4">
+                                        <p style="color:black!important;">
+                                            <sub style="font-size:20px;"></sub>
+                                            <span style="font-size:70px; font-weight:300; font-family: Work sans" , Helvetica, Arial, sans-serif;>
+                                                
+                                            </span>
+                                        </p>
+                                    </div>
+                                    
+                                </div>
+
+                                <ul class="list-unstyled list-bordered text-xs-left my-4">
+                                    <li class="py-3"> M/S. CASIL INDUSTRIES KADI [ GROP COMPANY OF CADILA PHARMA ] [ HYDRANT SYSTEM - UPGRADATION] </li>
+                                    <li class="py-3"> M/S. ClORITECH INDUSTRIES LIMITED - NANDESARI [ HYDRANT AND SPRINKLER SYSTEM] </li>
+                                    <li class="py-3">M/S. BROOKS LABORATORIES LIMITED - MANGLEJ KARJAN. [ HYDRANT AND SPRINKLER SYSTEM]   </li>
+                                    <li class="py-3">  M/s. BRENTWOOD INDUSTRIES - NANA PHOPHEDIA, BAMANGAON, DABHOI[ PUMP HOUSE AND SPRINKLER SYSTEM - UPGRADATION]  </li>
+                                    <li class="py-3">M/s. T B E A - KARJAN - [ REPLACEMENT OF HYDRANT NETWORK ]   </li>
+                                    <li class="py-3">M/S. ARMEIN PHARMACEUTICALS PVT LTD. BAMANVA - DHARMAJ - KHAMBAT [ HYDRANT SYSTEM]    </li>
+                                    <li class="py-3">M/S. HARI ORGOCHEM PVT LTD. - MANJUSAR SAVLI [ HYDRANT SYSTEM]   </li>
+                                    <li class="py-3">M/S. RAJSHA CHEMICALS PVT LTD - LAMDA PURA, MANJUSAR, SAVLI [ HYDRANT SYSTEM] </li>
+                                    <li class="py-3">M/S. GLOBAL GOURMET PVT LTD. - MASAR ROAD, JAMBUSAR [ HYDRANT AND SPRINKLER SYSTEM   </li>
+                                    <li class="py-3"> M/S. DWD PHARMACEUTICALS - RANIA VADOARA [ HYDRANT UPMP HOUSE PART]    </li>
+                                    <li class="py-3"> M/S. SUD-CHEMIE INDIA PVT LTD - NANDESARI, VADOARA [ WATER CURTAIN - AMMONIA STORAE]   </li>
+                                    <li class="py-3">M/S. GP GLOBAL ASPHALT PVT TLD. - GIDC, SAVLI [ PUMP HOUSE UP-GRADATION ]   </li>
+                                    <li class="py-3"> M/S. KIRI INDUSTRIES LTD UNIT V DUDHWADA, KARAKHADI [ HYDRANT AND SPRINKLER SYSTEM]  </li>
+                                    <li class="py-3">  M/S. INDUTCH COMPOSITES PVT LTD., SUNCITY, HALOL [ HYDRANT  SYSTEM]   </li>
+                                    <li class="py-3"> M/S. BANIYAN HOSPITAL [ M/S. ADICURA HOSPITAL ] - JETALPUR ROAD, VADOARA, WORK IS IN
+                                        PROGRESS. [ HYDRANT AND SPRINKLER SYSTEM]</li>
+                                    
+                                    
+
+                                </ul>
+
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div id="features" class="block block-success app-block-marketing-grid" style="padding:50px!important;">
+    <div class="container text-xs-center" >
+      <div class="row mb-5" >
+        <div class="col-xs-8 col-sm-10 offset-sm-1 col-lg-6 offset-lg-3 wow jackInTheBox" data-wow-delay="0.8s">
+          <h2  class="mb-4 text-uppercase text-center .text-info font-weight-bold"> Our Line Of Action</h2>
+        </div>
+      </div>
+<div>
+<ol>
+    <li>Site surveys and hazard classification</li>
+    <li>Systematic project costing, involving supply and erection cost </li>
+    <li>Site surveys and hazard classification</li>
+    <li>Site surveys and hazard classification</li>
+    <li>Site surveys and hazard classification</li>
+    <li>Site surveys and hazard classification</li>
+    <li>Site surveys and hazard classification</li>
+
+</ol>        
+
+</div>
+-->
+
+    <!--------------Features------------->
+
+<div id="features" class="block block-success app-block-marketing-grid" style="padding:50px!important;">
+  <div class="container text-xs-center" >
+    <div class="row mb-5" >
+      <div class="col-xs-8 col-sm-10 offset-sm-1 col-lg-6 offset-lg-3 wow jackInTheBox" data-wow-delay="0.8s">
+        <h2  class="mb-4 text-uppercase text-center .text-info font-weight-bold"> Our Line Of Action</h2>
+      </div>
+    </div>
+
+    <div class="row app-marketing-grid">
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="0.8s">
+        
+        <p><strong>1.</strong> Site surveys and hazard classification.</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="0.9s">
+        
+        <p><strong>2.</strong> Systematic project costing, involving supply and erection cost. </p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1s">
+        
+        <p><strong>3.</strong> Planning & designing which include layouts and system design .</p>
+      </div>
+    </div>
+
+    <div class="row app-marketing-grid">
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1.1s">
+      
+        <p><strong>4.</strong> Compliance Management & Installation of the systems.</p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1.2s">
+       
+        <p><strong>5.</strong> ommissioning and system operational training with fire drills. </p>
+      </div>
+      <div class="col-md-4 px-4 mb-5 wow zoomIn" data-wow-delay="1.3s" data-wow-duration="1s">
+       
+        <p><strong>6.</strong>After sale services in terms of annual maintenance contract to retain operational health of the systems.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-------------Footer--------------->
+
+<div class="block block-inverse app-footer" id="contact" >
+  <!----  <h2 class="w3-wide text-center mb-5 contact" style="position:relative; top: -50px;">
+        CONTACT
+    </h2>
+    <div class="container">
+        <div class="w3-content w3-padding-5" style="max-width:1090px; margin-top:-70px!important;">
+            <div class="w3-row w3-padding-32">
+                <div class="w3-col m6 w3-large mb-4">
+                    <span class="ml-1"><i class="fa fa-map-marker" style="width:30px"></i></span> City, Country<br>
+                    <i class="fa fa-whatsapp" style="width:30px"></i>+1-1234007283<br>
+                    <i class="fa fa-envelope" style="width:30px"> </i> <a href="mailto: hmawebdesign@hotmail.com">hmawebdesign@hotmail.com</a> <br>
+                    <div class="float-left my-3 ml-4"> --
+    --<div class="w3-col m6 w3-large mb-4">
+        <span class="ml-1"><i class="fa fa-map-marker" style="width:30px"></i></span> City, Country<br>
+        <i class="fa fa-whatsapp" style="width:30px"></i>+1-1234007283<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> <a href="mailto: hmawebdesign@hotmail.com">hmawebdesign@hotmail.com</a></div> -->
+    <h2 class="w3-wide text-center mb-5 contact" style="position:relative; top: -50px;">
+        CONTACT US
+    </h2>
+ <div class="container">
+     <div class="w3-content w3-padding-5" style="max-width:1090px; margin-top:-70px!important;">
+         <div class="w3-row w3-padding-32">
+             <div class="w3-col m6 w3-large mb-4">
+                 <span class="ml-1"><i class="fa fa-map-marker" style="width:30px"></i></span> 2nd Floor,214, Blue Chip Complex,Sayajigunj, Vadodara.<br>
+                 <i class="fa fa-whatsapp" style="width:30px"></i>9824386872<br>
+                 <i class="fa fa-envelope" style="width:30px"> </i> <a href="mailto: sasconcompany@gmail.com">sasconcompany@gmail.com</a> <br>
+                 <div class="float-left my-3 ml-4">
+              
+                     
+                 </div>
+             </div>
+             <div class="w3-col m6">
+                
+             </div>
+         </div>
+     </div>
+    
+    <div class="row">
+      <div class="col-md-5 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h4 class="text-uppercase">About</h4></li>
+          <li>
+              <span class="text-muted">
+                B. K Associate is an integrated and a dynamic company started in 2014 and providing fire protection and safety services since then to many companies and organizations. 
+
+                We deal primarily in design, installation, supply, and commissioning; and then, after sales maintenance of the fire protection system and installations.
+              </span>
+          </li>
+        </ul>
+      </div>
+      <!----
+      <div class="col-md-2 offset-md-1 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h6  class="text-uppercase">Languages</h6></li>
+          <li class="text-muted">HTML5</li>
+          <li class="text-muted">CSS3</li>
+          <li class="text-muted">JavaScript</li>
+          <li class="text-muted">PHP</li>
+            <li class="text-muted">Python</li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h6>Explore</h6></li>
+          <li><a href="#ourWork"  class="text-muted">Our Work</a></li>
+          <li><a href="#features"  class="text-muted">Features</a></li>
+          <li><a href="#"  class="text-muted">Videos</a></li>
+          <li><a href="#"  class="text-muted">Blogs</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2 mb-5">
+        <ul class="list-unstyled list-spaced">
+          <li class="mb-4"><h6 class="text-uppercase">Important</h6></li>
+          <li class="text-muted"><a href="#">Services</a></li>
+          <li class="text-muted">Term & Conditions</li>
+          <li class="text-muted">Privacy</li>
+          <li class="text-muted">FAQ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+-->
+ <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<hr class="my-2" style="position:relative; top:20px;" />
+    <div class="container mt-2 text-muted"style="position:relative; top:20px;">
+        <p style="font-size: 12px;">&#169; B.K. Associate 2023. All rights reserved.</p>
+    </div>
+</div>
+
+<!-------------Javascript/ jQuery------------>
+
+    <script type="text/javascript">
+   
+
+        //Get the Top button:
+        mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+
+    </script>
+
+    <!------Animation------>
+    <script src="wow.min.js"></script>
+    <script src="jquery.waypoints.min.js"></script>
+    <script>
+              new WOW().init();
+    </script>
+
+    
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/tether.min.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js"></script>
+
+  </body>
+</html>
+
